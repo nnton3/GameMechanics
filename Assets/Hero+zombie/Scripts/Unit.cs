@@ -31,7 +31,7 @@ public abstract class Unit : MonoBehaviour {
 
 	public abstract void GetDamage ();
 
-	public abstract void SetDamage ();
+	public abstract void SetDamage (float damage);
 
 	public abstract void SetStun ();
 

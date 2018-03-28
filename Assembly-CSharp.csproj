@@ -104,6 +104,7 @@
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineMixer.cs" />
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineShot.cs" />
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineTrack.cs" />
+     <Compile Include="Assets\Hero+zombie\Scripts\Arrow.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\DangerArea.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Enemy_zombie.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Flip.cs" />

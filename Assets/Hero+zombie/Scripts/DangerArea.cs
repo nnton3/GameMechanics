@@ -4,34 +4,35 @@ using UnityEngine;
 
 public class DangerArea : MonoBehaviour {
 
-	alert zombieAlert;
-	idle zombieIdle;
-	List<IReaction<GameObject>> zombies = new List<IReaction<GameObject>>();
+	alert enemieAlert;
+	idle enemieIdle;
+	List<IReaction<GameObject>> enemies = new List<IReaction<GameObject>>();
+	bool check = true;
+	[HideInInspector]
+	public int deadEnemies = 0;
+	int allEnemies = 0;
 
 	void Start () {
-		foreach (IReaction<GameObject> zombie in zombies) {
-			zombieAlert += zombie.Chase;
+		foreach (IReaction<GameObject> enemy in enemies) {
+			enemieAlert += enemy.Chase;
+			allEnemies += 1;
 		}
 
-		foreach (IReaction<GameObject> zombie in zombies) {
-			zombieIdle += zombie.Idle;
+		foreach (IReaction<GameObject> enemy in enemies) {
+			enemieIdle += enemy.Idle;
 		}
 	}
 
-	public void AddZombie(IReaction<GameObject> newZombie) {
-		zombies.Add (newZombie);
+	public void AddEnemie(IReaction<GameObject> newEnemie) {
+		enemies.Add (newEnemie);
 	}
 
 	void OnTriggerEnter2D (Collider2D other) {
 		if (other.CompareTag ("Player")) {
-			Debug.Log ("enter");
-			zombieAlert (other.gameObject);
-		}
-	}
-
-	void OnTriggerExit2D (Collider2D other) {
-		if (other.CompareTag ("Player")) {
-			zombieIdle ();
+			if (check) {
+				enemieAlert (other.gameObject);
+				check = false;
+			}
 		}
 	}
 }

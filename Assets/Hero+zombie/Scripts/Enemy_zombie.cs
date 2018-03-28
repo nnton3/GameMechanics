@@ -16,7 +16,7 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 
 	void Awake() {
 		start = GetComponentInParent<DangerArea> ();
-		start.AddZombie (this);
+		start.AddEnemie (this);
 	}
 
 	void Start () {
@@ -50,8 +50,8 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 	//Нанести урон
 	public override void GetDamage () {
 		if (attackCheck) {
-			anim.SetTrigger ("attack");
 			attackCheck = false;
+			anim.SetTrigger ("attack");
 		}
 	}
 
@@ -69,14 +69,18 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, targetVector, attackRange, attackCollision);
 
 		if (hit) {
-			hit.transform.GetComponent<Unit> ().SetDamage ();
+			hit.transform.GetComponent<Unit> ().SetDamage (attack);
 		}
 	}
 
 	//Получить урон
-	public override void SetDamage () {
-		anim.SetTrigger ("die");
-		Die ();
+	public override void SetDamage (float damage) {
+		if (health <= damage) {
+			Die ();
+			return;
+		}
+
+		health -= damage;
 	}
 
 	//Получить стан
@@ -86,8 +90,10 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 
 	//Умереть
 	public override void Die () {
+		anim.SetTrigger ("die");
 		alive = false;
 		gameObject.layer = 2;
+		gameObject.tag = "Puddle";
 	}
 
 	//Начать преследование

@@ -5,6 +5,9 @@ using UnityEngine;
 public class Player : Unit {
 
 	public LayerMask attackCollision;
+	public GameObject arrow;
+
+	bool inBlock = false;
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -20,6 +23,14 @@ public class Player : Unit {
 
 		if (Input.GetKeyDown (KeyCode.R)) {
 			Roll ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.B)) {       //Блок
+			Block ();
+		}
+
+		if (Input.GetKeyDown (KeyCode.P)) {       //Атака из лука
+			PullBow ();
 		}
 
 		if (!invulnerability && !stunned) {
@@ -38,9 +49,16 @@ public class Player : Unit {
 
 	//Атака
 	public override void GetDamage () {
+
+		if (inBlock) {
+			StopBlock ();
+		}
+
 		if (attackCheck && !stunned) {
 			anim.SetTrigger ("attack");
 			attackCheck = false;
+			//Меняем скорость атаки в зависимости от заданного параметра
+			anim.speed = 1 / attackSpeed;
 		}
 	}
 
@@ -55,13 +73,22 @@ public class Player : Unit {
 		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, targetVector, attackRange, attackCollision);
 
 		if (hit) {
-			hit.transform.GetComponent<Unit> ().SetDamage ();
+			hit.transform.GetComponent<Unit> ().SetDamage (attack);
 		}
 	}
 
-	public override void SetDamage () {
-		anim.SetTrigger ("attackableWithSword");
-		SetStun ();
+	//Получить урон
+	public override void SetDamage (float damage) {
+		if (!invulnerability) {
+			if (health > damage) {
+				anim.SetTrigger ("attackable");
+				SetStun ();
+				health -= damage;
+			} else
+				Die ();
+		} else if (inBlock) {
+			anim.SetTrigger ("attackable");
+		}
 	}
 
 	public override void SetStun () {
@@ -77,6 +104,11 @@ public class Player : Unit {
 	}
 
 	public void Roll() {
+
+		if (inBlock) {
+			StopBlock ();
+		}
+
 		if (!invulnerability) {
 			invulnerability = true;
 			Physics2D.IgnoreLayerCollision (9, 8, true);
@@ -89,5 +121,34 @@ public class Player : Unit {
 		moveSpeed = 5f;
 		Physics2D.IgnoreLayerCollision (9, 8, false);
 		invulnerability = false;
+	}
+
+	//Стрельба из лука
+	void PullBow () {
+		anim.SetTrigger ("pullBow");
+	}
+
+	//Выпустить стрелу
+	public void CreateArrow() {
+		GameObject arrowInstance = Instantiate (arrow, new Vector3 (transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
+		Arrow arrowScript = arrowInstance.GetComponent<Arrow> ();
+		arrowScript.SetDirection (direction);
+	}
+
+	//Использовать блок
+	void Block() {
+		if (!invulnerability && !inBlock) {
+			invulnerability = true;
+			inBlock = true;
+			anim.SetTrigger ("block");
+		} else
+			StopBlock ();
+	}
+
+	//Завершить блок
+	public void StopBlock () {
+		invulnerability = false;
+		inBlock = false;
+		anim.SetTrigger ("block");
 	}
 }
