@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Arrow : Unit {
+public class Аrrow : Unit {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();
@@ -15,8 +15,7 @@ public class Arrow : Unit {
 
 	void OnTriggerEnter2D (Collider2D target) {
 		if (target.CompareTag ("Enemy")) {
-			Debug.Log ("enter");
-			target.GetComponent<Unit> ().SetDamage(attack);
+			target.GetComponent<Unit> ().SetDamage(attack, direction);
 			Destroy (gameObject);
 		}
 	}
@@ -27,7 +26,7 @@ public class Arrow : Unit {
 
 	public override void GetDamage () {}
 
-	public override void SetDamage (float damage) {}
+	public override void SetDamage (float damage, float impulseDirection) {}
 
 	public override void SetStun () {}
 
