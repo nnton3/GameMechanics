@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Аrrow : Unit {
+public class Arrow : Unit {
 
 	void Start () {
 		rb = GetComponent<Rigidbody2D> ();

@@ -325,6 +325,11 @@ Prefab:
       propertyPath: attack
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114239565616695374, guid: 00013717812324f7eb98fa0fdfc0f990,
+        type: 2}
+      propertyPath: runDistance
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 00013717812324f7eb98fa0fdfc0f990, type: 2}
   m_IsPrefabParent: 0

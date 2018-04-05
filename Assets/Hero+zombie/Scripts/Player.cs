@@ -189,7 +189,7 @@ public class Player : Unit {
 	//Выпустить стрелу
 	public void CreateArrow() {
 		GameObject arrowInstance = Instantiate (arrow, new Vector3 (transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
-		Аrrow arrowScript = arrowInstance.GetComponent<Аrrow> ();
+		Arrow arrowScript = arrowInstance.GetComponent<Arrow> ();
 		arrowScript.SetDirection (direction);
 	}
 
