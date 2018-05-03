@@ -34,7 +34,7 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 	}
 
 	void Start () {
-		hpBar = transform.Find ("HPBar").gameObject;
+		//hpBar = transform.Find ("HPBar").gameObject;
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
@@ -118,7 +118,7 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 
 	//Умереть
 	public override void Die () {
-		Destroy (hpBar);
+		//Destroy (hpBar);
 		anim.SetTrigger ("die");
 		alive = false;
 		gameObject.layer = 2;
@@ -134,7 +134,7 @@ public class Enemy_zombie : Unit, IReaction<GameObject> {
 	public void StartChase() {
 		gameObject.layer = 9;
 		idle = false;
-		hpBar.SetActive (true);
+		//hpBar.SetActive (true);
 	}
 
 	//Остановить преследование

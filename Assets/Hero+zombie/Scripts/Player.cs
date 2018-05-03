@@ -62,12 +62,8 @@ public class Player : Unit {
 		}
 
 		if (attackCheck && !stunned) {
-			float chance = Random.Range (0f, 1f);
-			if (chance > 0.2f) {
-				anim.SetTrigger ("attack");
-			} else 
-				anim.SetTrigger ("attack2");
-			
+				
+			anim.SetTrigger ("attack");
 			attackCheck = false;
 			//Меняем скорость атаки в зависимости от заданного параметра
 			anim.speed = 1 / attackSpeed;
@@ -88,11 +84,7 @@ public class Player : Unit {
 		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, targetVector, attackRange, attackCollision);
 
 		if (hit) {
-			if (attackModifier == 1) {
-				hit.transform.GetComponent<Unit> ().SetDamage (attack, direction, attackModify);
-			} else {
-				hit.transform.GetComponent<Unit> ().SetDamage (attack * 2f, direction, attackModify);
-			}
+			hit.transform.GetComponent<Unit> ().SetDamage (attack, direction, attackModify);
 		}
 	}
 
