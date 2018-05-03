@@ -104,13 +104,13 @@
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineMixer.cs" />
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineShot.cs" />
      <Compile Include="Assets\Hero+zombie\AssetStore\Cinemachine\Timeline\CinemachineTrack.cs" />
-     <Compile Include="Assets\Hero+zombie\Scripts\Arrow.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\DangerArea.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Enemy_zombie.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Flip.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Interfaces.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Player.cs" />
      <Compile Include="Assets\Hero+zombie\Scripts\Unit.cs" />
+     <Compile Include="Assets\Hero+zombie\Scripts\Аrrow.cs" />
      <None Include="Assets\Hero+zombie\AssetStore\Cinemachine\ReleaseNotes.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

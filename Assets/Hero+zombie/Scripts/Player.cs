@@ -9,22 +9,21 @@ public class Player : Unit {
 
 	bool inBlock = false;
 
-	Flip flip;
 
 	public float rollCD = 3f;
 	bool rollCheck = true;
 
 	//Сила толчка во время получения урона
-	public float impulsePower = 3f;
+	public float defaultImpulsePower = 10f;
+	float impulsePower = 10f;
 
 	void Start () {
-		flip = GetComponent<Flip> ();
 		rb = GetComponent<Rigidbody2D> ();
 		anim = GetComponent<Animator> ();
 	}
-
+	
 	void Update () {
-
+		
 		if (attackCheck) {
 			//Управление
 			if (Input.GetKeyDown (KeyCode.F)) {       //Атака мечом
@@ -36,26 +35,22 @@ public class Player : Unit {
 			}
 
 			if (Input.GetKeyDown (KeyCode.B)) {       //Блок
-				Block ();
+				UseShield ();
 			}
 
 			if (Input.GetKeyDown (KeyCode.P)) {       //Атака из лука
 				PullBow ();
 			}
 		}
-		Debug.Log ("rollCheck = " + rollCheck);
+
 		if (stunned || !alive) {
-			float step = 0.01f * Time.time;
-			moveSpeed = Mathf.MoveTowards (impulsePower, 0f, step);
-		} else if (!invulnerability && !stunned || inBlock) {
-			input = Input.GetAxisRaw ("Horizontal");
+			Impulse ();
 		} else {
-			float step = 0.01f * Time.time;
-			moveSpeed = Mathf.MoveTowards (7f, 0f, step);
+			input = Input.GetAxisRaw ("Horizontal");
+			flipParam = input;
 		}
 
 		rb.velocity = new Vector2 (input * moveSpeed, rb.velocity.y);
-
 		anim.SetBool ("run", Mathf.Abs (input) > 0.1f);
 	}
 
@@ -63,11 +58,16 @@ public class Player : Unit {
 	public override void GetDamage () {
 
 		if (inBlock) {
-			StopBlock ();
+			RemoveShield ();
 		}
 
 		if (attackCheck && !stunned) {
-			anim.SetTrigger ("attack");
+			float chance = Random.Range (0f, 1f);
+			if (chance > 0.2f) {
+				anim.SetTrigger ("attack");
+			} else 
+				anim.SetTrigger ("attack2");
+			
 			attackCheck = false;
 			//Меняем скорость атаки в зависимости от заданного параметра
 			anim.speed = 1 / attackSpeed;
@@ -81,51 +81,55 @@ public class Player : Unit {
 	}
 
 	//Построить луч атаки
-	public void CreateAttackVector() {
+	public void CreateAttackVector(int attackModifier) {
 		Vector2 targetVector = new Vector2 (direction, 0);
 		Vector2 rayOrigin = new Vector2 (transform.position.x, transform.position.y + 0.7f);
 
 		RaycastHit2D hit = Physics2D.Raycast (rayOrigin, targetVector, attackRange, attackCollision);
 
 		if (hit) {
-			hit.transform.GetComponent<Unit> ().SetDamage (attack, direction);
+			if (attackModifier == 1) {
+				hit.transform.GetComponent<Unit> ().SetDamage (attack, direction, attackModify);
+			} else {
+				hit.transform.GetComponent<Unit> ().SetDamage (attack * 2f, direction, attackModify);
+			}
 		}
 	}
 
 	//Получить урон
-	public override void SetDamage (float damage, float impulseDirection) {
-		if (!invulnerability) {
-			if (health > damage) {
+	public override void SetDamage (float damage, float impulseDirection, bool[] attackModify) {
+
+		bool backToTheEnemy = impulseDirection == direction;
+
+		if (inBlock) {
+			if (backToTheEnemy || attackModify[1]) {
+				ReduceHP (damage);
+				RemoveShield ();
+				SetStun (impulseDirection);
 				anim.SetTrigger ("attackable");
-				SetStun ();
-				input = impulseDirection;
-				health -= damage;
-			} else
-				Die ();
-		} else if (inBlock) {
-			if (impulseDirection == direction) {
-				health -= damage;
-				anim.SetTrigger ("attackable");
-				return;
+			} else {
+				SetStun (impulseDirection);
+				anim.SetTrigger ("blocked");
 			}
-			SetStun ();
-			input = impulseDirection;
-			anim.SetTrigger ("blocked");
+		} else if (!invulnerability) {
+			ReduceHP (damage);
+			SetStun (impulseDirection);
+			anim.SetTrigger ("attackable");
 		}
 	}
 
 	//Получить стан
-	public override void SetStun () {
-		flip.enabled = false;
+	public override void SetStun (float direction) {
+		input = direction;
 		stunned = true;
 	}
 
 	//Сбросить чек стана
 	public void ResetStunCheck () {
-		flip.enabled = true;
 		input = 0f;
 		moveSpeed = 5f;
 		stunned = false;
+		SetImpulsePower (defaultImpulsePower);
 	}
 
 	//Умереть
@@ -134,17 +138,17 @@ public class Player : Unit {
 	}
 
 	//Использовать блок
-	void Block() {
+	void UseShield() {
 		if (!invulnerability && !inBlock) {
 			invulnerability = true;
 			inBlock = true;
 			anim.SetTrigger ("block");
 		} else
-			StopBlock ();
+			RemoveShield ();
 	}
 
 	//Завершить блок
-	public void StopBlock () {
+	public void RemoveShield () {
 		invulnerability = false;
 		inBlock = false;
 		anim.SetTrigger ("block");
@@ -154,12 +158,14 @@ public class Player : Unit {
 	void Roll() {
 
 		if (inBlock) {
-			StopBlock ();
+			RemoveShield ();
 		}
 
 		if (!stunned && rollCheck) {
 			rollCheck = false;
 			invulnerability = true;
+			SetImpulsePower (50f);
+			stunned = true;
 			Physics2D.IgnoreLayerCollision (9, 8, true);
 			attackCheck = false;
 			anim.SetTrigger ("roll");
@@ -170,6 +176,7 @@ public class Player : Unit {
 
 	//Завершить перекат
 	public void StopRoll() {
+		ResetStunCheck ();
 		moveSpeed = 5f;
 		Physics2D.IgnoreLayerCollision (9, 8, false);
 		invulnerability = false;
@@ -179,7 +186,7 @@ public class Player : Unit {
 	void PullBow () {
 
 		if (inBlock) {
-			StopBlock ();
+			RemoveShield ();
 		}
 
 		attackCheck = false;
@@ -189,7 +196,7 @@ public class Player : Unit {
 	//Выпустить стрелу
 	public void CreateArrow() {
 		GameObject arrowInstance = Instantiate (arrow, new Vector3 (transform.position.x, transform.position.y + 0.9f, transform.position.z), Quaternion.identity);
-		Arrow arrowScript = arrowInstance.GetComponent<Arrow> ();
+		Аrrow arrowScript = arrowInstance.GetComponent<Аrrow> ();
 		arrowScript.SetDirection (direction);
 	}
 
@@ -197,5 +204,20 @@ public class Player : Unit {
 		yield return new WaitForSeconds (rollCD);
 		rollCheck = true;
 	}
-}
 
+	void Impulse () {
+		moveSpeed = Mathf.Sqrt(Time.deltaTime) * impulsePower;
+	}
+
+	//Уменьшить ХП + проверка на "смерть"
+	void ReduceHP (float damage) {
+		if (health <= damage) {
+			Die ();
+		}
+		health -= damage;
+	}
+
+	public void SetImpulsePower (float value) {
+		impulsePower = value;
+	}
+}

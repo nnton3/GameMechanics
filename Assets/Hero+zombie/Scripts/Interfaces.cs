@@ -10,3 +10,5 @@ public interface IReaction <T> {
 public delegate void alert (GameObject player);
 
 public delegate void idle ();
+
+

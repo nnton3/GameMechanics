@@ -18,6 +18,8 @@ public abstract class Unit : MonoBehaviour {
 	public bool stunned = false;
 	[HideInInspector]
 	public bool alive = true;
+	[HideInInspector]
+	public bool[] attackModify = new bool[2];
 
 	public float moveSpeed = 2f;
 	[HideInInspector]
@@ -28,12 +30,14 @@ public abstract class Unit : MonoBehaviour {
 	public Animator anim;
 	[HideInInspector]
 	public float direction = 1f;
+	[HideInInspector]
+	public float flipParam = 0f;
 
 	public abstract void GetDamage ();
 
-	public abstract void SetDamage (float damage, float impulseDirection);
+	public abstract void SetDamage (float damage, float impulseDirection, bool[] attackModify);
 
-	public abstract void SetStun ();
+	public abstract void SetStun (float direction);
 
 	public abstract void Die ();
 }

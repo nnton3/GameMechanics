@@ -106,10 +106,10 @@ MonoBehaviour:
     y: 30
     width: 1280
     height: 750
-  m_MinSize: {x: 583, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 581, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 53
+  controlID: 28
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -133,7 +133,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 54
+  controlID: 29
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_MinSize: {x: 306, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 55
+  controlID: 30
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -236,7 +236,7 @@ MonoBehaviour:
   - {fileID: 15}
   - {fileID: 18}
   m_Selected: 0
-  m_LastSelected: 2
+  m_LastSelected: 1
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -255,8 +255,8 @@ MonoBehaviour:
     y: 0
     width: 277
     height: 750
-  m_MinSize: {x: 277, y: 71}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 20}
   m_Panes:
   - {fileID: 20}
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 
-    m_LastClickedID: 0
-    m_ExpandedIDs: 9cfbffff00000000
+    m_SelectedIDs: 9afbffff
+    m_LastClickedID: -1126
+    m_ExpandedIDs: 7cfbffff9cfbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -564,18 +564,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Hero+zombie/Sprites/Hero_sprites
+    - Assets/Hero+zombie/Scripts
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Hero+zombie/Sprites/Hero_sprites
+  - Assets/Hero+zombie/Scripts
   m_LastFoldersGridSize: 96
   m_LastProjectPath: /Users/Anton/Desktop/GameMechanics
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 123}
-    m_SelectedIDs: 76290000
-    m_LastClickedID: 10614
+    m_SelectedIDs: 42290000
+    m_LastClickedID: 10562
     m_ExpandedIDs: 00000000442800002e290000e42900007e2a0000222c0000242c0000262c0000282c00002a2c00002c2c00002e2c000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: f2240000281700009c260000badbffff62a7ffff4662ffffc89affff88380000fcaefeffc2230000ea290000be02feff08e7fdff542700006027000056260000c6b2fffffe25000020060000cc230000e0240000e2240000de2d0000f0240000fef0ffff9e240000a632000004340000ca230000c8230000485f0000b62b000016800000042d000020d40000e8d5f1ffa07700001c260000306801007a2f000078290100142a01003a280000308e030050100100a2270000e8280000d01402007a2c0000845c00002a450000d026feff8275010090a70200042a00002cbf020016cefcff8e290000000000004af002007ef00200be270000402b000038430000ea27000068280000202f0000a64d0000387f0000c2350000ce340000a4330000fc3200006c2f00003e290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -809,7 +809,7 @@ MonoBehaviour:
     width: 275
     height: 729
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 648.9551}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 188
