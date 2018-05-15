@@ -313,9 +313,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 204
-    y: 94
+    y: 49
     width: 797
-    height: 344
+    height: 410
   m_PersistentViewDataDictionary: {fileID: 0}
   m_MaximizeOnPlay: 0
   m_Gizmos: 0
@@ -325,10 +325,10 @@ MonoBehaviour:
   m_ZoomArea:
     m_HRangeLocked: 0
     m_VRangeLocked: 0
-    m_HBaseRangeMin: -145.33333
-    m_HBaseRangeMax: 145.33333
-    m_VBaseRangeMin: -81.75
-    m_VBaseRangeMax: 81.75
+    m_HBaseRangeMin: -174.66667
+    m_HBaseRangeMax: 174.66667
+    m_VBaseRangeMin: -98.25
+    m_VBaseRangeMax: 98.25
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -346,9 +346,9 @@ MonoBehaviour:
       x: 0
       y: 17
       width: 797
-      height: 327
+      height: 393
     m_Scale: {x: 2, y: 2}
-    m_Translation: {x: 398.5, y: 163.5}
+    m_Translation: {x: 398.5, y: 196.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -356,14 +356,14 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -199.25
-      y: -81.75
+      y: -98.25
       width: 398.5
-      height: 163.5
+      height: 196.5
     m_MinimalGUI: 1
   m_defaultScale: 2
   m_TargetTexture: {fileID: 0}
   m_CurrentColorSpace: 0
-  m_LastWindowPixelSize: {x: 1594, y: 688}
+  m_LastWindowPixelSize: {x: 1594, y: 820}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000100000100
@@ -396,9 +396,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 342b0000
-    m_LastClickedID: 11060
-    m_ExpandedIDs: 9cfbffff00000000
+    m_SelectedIDs: 84fbffff
+    m_LastClickedID: -1148
+    m_ExpandedIDs: 8cfbffff9cfbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -564,19 +564,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Start_pack/Scripts
+    - Assets
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Start_pack/Scripts
+  - Assets/Strong_zombie
   m_LastFoldersGridSize: 96
   m_LastProjectPath: /Users/Anton/Desktop/GameMechanics
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 11}
-    m_SelectedIDs: 48290000
-    m_LastClickedID: 10568
-    m_ExpandedIDs: 000000004628000032290000582c00005a2c00005c2c00005e2c0000602c0000622c0000642c0000662c0000682c00006a2c000000ca9a3bffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 46280000
+    m_LastClickedID: 10310
+    m_ExpandedIDs: 0000000046280000582c00005a2c00005c2c00005e2c0000602c0000622c0000642c0000662c0000682c00006a2c0000da2d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -631,7 +631,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 1
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: f2240000281700009c260000badbffff62a7ffff4662ffffc89affff88380000fcaefeffc2230000ea290000be02feff08e7fdff542700006027000056260000c6b2fffffe25000020060000cc230000e0240000e2240000de2d0000f0240000fef0ffff9e240000a632000004340000ca230000c8230000485f0000b62b000016800000042d000020d40000e8d5f1ffa07700001c260000306801007a2f000078290100142a01003a280000308e030050100100a2270000e8280000d01402007a2c0000845c00002a450000d026feff8275010090a70200042a00002cbf020016cefcff8e290000000000004af002007ef00200be270000402b000038430000ea27000068280000202f0000a64d0000387f0000c2350000ce340000a4330000fc3200006c2f00003e290000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
-    m_ScrollPosition: {x: 0, y: 10}
+    m_ScrollPosition: {x: 0, y: 0}
     m_GridSize: 96
   m_DirectoriesAreaWidth: 155
 --- !u!114 &18
@@ -809,7 +809,7 @@ MonoBehaviour:
     width: 275
     height: 729
   m_PersistentViewDataDictionary: {fileID: 0}
-  m_ScrollPosition: {x: 0, y: 41.95508}
+  m_ScrollPosition: {x: 0, y: 0}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: 188
