@@ -10,18 +10,8 @@ public abstract class Unit : MonoBehaviour {
 	public float attackSpeed = 0f;
 	public float attackRange = 1f;
 
-	[HideInInspector]
-	public bool invulnerability = false;
-	[HideInInspector]
-	public bool attackCheck = true;
-	[HideInInspector]
-	public bool stunned = false;
-	[HideInInspector]
-	public bool alive = true;
-	[HideInInspector]
-	public bool[] attackModify = new bool[2];
-
-	public float moveSpeed = 2f;
+	public float moveSpeed;
+	public float impulsePower;
 	[HideInInspector]
 	public float input = 0f;
 	[HideInInspector]
@@ -29,15 +19,33 @@ public abstract class Unit : MonoBehaviour {
 	[HideInInspector]
 	public Animator anim;
 	[HideInInspector]
+	public Damage damage;
+	[HideInInspector]
+	public Conditions conditions;
+	[HideInInspector]
 	public float direction = 1f;
 	[HideInInspector]
 	public float flipParam = 0f;
 
-	public abstract void GetDamage ();
 
-	public abstract void SetDamage (float damage, float impulseDirection, bool[] attackModify);
+	public virtual void Attack () {
+		
+	}
 
-	public abstract void SetStun (float direction);
+	//Проверка на возможность двигаться
+	public virtual bool CanMove() {
+		return (conditions.alive && !conditions.stun);
+	}
 
-	public abstract void Die ();
+	//Проверка на возможность атаковать
+	public virtual bool CanAttack() {
+		return (!conditions.attack && !conditions.stun);
+	}
+
+	//Зарегистрироваться в родительском стаке врагов
+	public DangerArea myStack;
+	public virtual void RegistrationInStack () {
+		myStack = GetComponentInParent<DangerArea> ();
+		myStack.AddEnemie (this);
+	}
 }

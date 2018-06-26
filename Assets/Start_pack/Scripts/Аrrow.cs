@@ -15,7 +15,7 @@ public class Аrrow : Unit {
 
 	void OnTriggerEnter2D (Collider2D target) {
 		if (target.CompareTag ("Enemy")) {
-			target.GetComponent<Unit> ().SetDamage(attack, direction, attackModify);
+			target.GetComponent<Damage> ().DefaultDamage(attack, direction);
 			Destroy (gameObject);
 		}
 	}
@@ -24,14 +24,6 @@ public class Аrrow : Unit {
 		flipParam = direction;
 		input = direction;
 	}
-
-	public override void GetDamage () {}
-
-	public override void SetDamage (float damage, float impulseDirection, bool[] attackModify) {}
-
-	public override void SetStun (float direction) {}
-
-	public override void Die () {}
 
 	IEnumerator Timer() {
 		yield return new WaitForSeconds (3f);

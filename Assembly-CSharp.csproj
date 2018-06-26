@@ -51,14 +51,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Start_pack\Scripts\BaseScripts\Conditions.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\BaseScripts\Damage.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Camera.cs" />
      <Compile Include="Assets\Start_pack\Scripts\DangerArea.cs" />
-     <Compile Include="Assets\Start_pack\Scripts\Enemy_zombie.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\Enemy.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Flip.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Interface\HPBar.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Interfaces.cs" />
-     <Compile Include="Assets\Start_pack\Scripts\Player.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\Player.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\PlayerConditions.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\PlayerDamage.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Unit.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\UnitInterface.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\Zombie.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\ZombyScripts\Default_zombie.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\ZombyScripts\ZombyConditions.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\ZombyScripts\ZombyDamage.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Аrrow.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 61482230359251940}
   - component: {fileID: 50068229134190314}
   - component: {fileID: 114422357488255534}
+  - component: {fileID: 114412332576155122}
   - component: {fileID: 114901732494411922}
   m_Layer: 8
   m_Name: Player
@@ -39,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1905435086076646}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.5, y: -4.5, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107,6 +108,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114412332576155122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1905435086076646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd9706cbeed1d4ec181a0d4e31a62497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114422357488255534
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -127,15 +139,19 @@ MonoBehaviour:
   attackCheck: 1
   stunned: 0
   alive: 1
+  attackModify: 0000
   moveSpeed: 5
   input: 0
   rb: {fileID: 0}
   anim: {fileID: 0}
   direction: 1
+  flipParam: 0
   attackCollision:
     serializedVersion: 2
     m_Bits: 512
-  arrow: {fileID: 0}
+  arrow: {fileID: 1843916439831448, guid: bd096aa082bc646f5919ae317ea927d7, type: 2}
+  rollCD: 3
+  defaultImpulsePower: 20
 --- !u!114 &114901732494411922
 MonoBehaviour:
   m_ObjectHideFlags: 1

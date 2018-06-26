@@ -91,14 +91,14 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 4.6666665
-    functionName: CreateAttackVector
+    functionName: Default_Attack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 2
     messageOptions: 0
   - time: 5.9166665
-    functionName: ResetAttackCheck
+    functionName: FinishAttack
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

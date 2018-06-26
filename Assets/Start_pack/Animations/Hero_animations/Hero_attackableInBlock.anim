@@ -79,14 +79,7 @@ AnimationClip:
   m_GenerateMotionCurves: 0
   m_Events:
   - time: 0.41666666
-    functionName: ResetStunCheck
-    data: 
-    objectReferenceParameter: {fileID: 0}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.41666666
-    functionName: ResetAttackCheck
+    functionName: DisableStun
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

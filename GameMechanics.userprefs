@@ -1,9 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Start_pack/Scripts/Camera.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Start_pack/Scripts/Interfaces.cs">
     <Files>
-      <File FileName="Assets/Start_pack/Scripts/Camera.cs" Line="20" Column="22" />
-      <File FileName="Assets/Start_pack/Scripts/Аrrow.cs" Line="1" Column="1" />
+      <File FileName="Assets/Start_pack/Scripts/ZombyScripts/Default_zombie.cs" Line="5" Column="37" />
+      <File FileName="Assets/Start_pack/Scripts/ZombyScripts/ZombyConditions.cs" Line="6" Column="2" />
+      <File FileName="Assets/Start_pack/Scripts/ZombyScripts/ZombyDamage.cs" Line="1" Column="1" />
+      <File FileName="Assets/Start_pack/Scripts/PlayerScripts/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Start_pack/Scripts/PlayerScripts/PlayerConditions.cs" Line="1" Column="1" />
+      <File FileName="Assets/Start_pack/Scripts/Zombie.cs" Line="5" Column="20" />
+      <File FileName="Assets/Start_pack/Scripts/Interfaces.cs" Line="3" Column="19" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
