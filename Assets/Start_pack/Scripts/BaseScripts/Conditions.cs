@@ -12,6 +12,7 @@ public class Conditions : MonoBehaviour {
 	void Start () {
 		unit = GetComponent<Unit> ();
 		anim = GetComponent<Animator> ();
+		hpBar = GetComponentInChildren<HPBar> ();
 		defaultMovespeed = unit.moveSpeed;
 		defaultImpulsePower = unit.impulsePower;
 	}
@@ -120,6 +121,8 @@ public class Conditions : MonoBehaviour {
 	//СМЕРТЬ
 	[HideInInspector]
 	public bool alive = true;
+	[HideInInspector]
+	public HPBar hpBar;
 
 	public virtual void UnitDie () {
 		alive = false;

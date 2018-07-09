@@ -33,11 +33,12 @@ public class ZombyConditions : Conditions {
 	}
 
 	//СМЕРТЬ
+
 	public override void UnitDie ()
 	{
-		//Destroy (hpBar);
 		anim.SetTrigger ("die");
-		alive = false;
+		base.UnitDie ();
+		hpBar.Disable ();
 		gameObject.layer = 2;
 		gameObject.tag = "Puddle";
 

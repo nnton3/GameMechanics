@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\Start_pack\Scripts\BaseScripts\Conditions.cs" />
      <Compile Include="Assets\Start_pack\Scripts\BaseScripts\Damage.cs" />
+     <Compile Include="Assets\Start_pack\Scripts\BaseScripts\Unit.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Camera.cs" />
      <Compile Include="Assets\Start_pack\Scripts\DangerArea.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Enemy.cs" />
@@ -62,7 +63,6 @@
      <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\Player.cs" />
      <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\PlayerConditions.cs" />
      <Compile Include="Assets\Start_pack\Scripts\PlayerScripts\PlayerDamage.cs" />
-     <Compile Include="Assets\Start_pack\Scripts\Unit.cs" />
      <Compile Include="Assets\Start_pack\Scripts\UnitInterface.cs" />
      <Compile Include="Assets\Start_pack\Scripts\Zombie.cs" />
      <Compile Include="Assets\Start_pack\Scripts\ZombyScripts\Default_zombie.cs" />

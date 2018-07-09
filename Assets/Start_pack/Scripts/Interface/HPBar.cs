@@ -11,6 +11,8 @@ public class HPBar : MonoBehaviour {
 	Transform unitTransform;
 	Vector3 scale;
 
+	public GameObject barObject;
+
 	void Start () {
 		image = GetComponent<Image> ();
 		maxHP = unit.health;
@@ -26,5 +28,10 @@ public class HPBar : MonoBehaviour {
 		}
 
 		image.fillAmount = unit.health / maxHP;
+	}
+
+	public void Disable () 
+	{
+		Destroy (barObject);
 	}
 }

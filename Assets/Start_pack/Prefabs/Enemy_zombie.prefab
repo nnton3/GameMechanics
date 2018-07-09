@@ -59,7 +59,9 @@ GameObject:
   - component: {fileID: 61646979732870760}
   - component: {fileID: 50591103495363298}
   - component: {fileID: 114927335698607798}
-  - component: {fileID: 114239565616695374}
+  - component: {fileID: 114895144323521222}
+  - component: {fileID: 114029006263478184}
+  - component: {fileID: 114139921542465552}
   m_Layer: 9
   m_Name: Enemy_zombie
   m_TagString: Enemy
@@ -225,7 +227,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114239565616695374
+--- !u!114 &114029006263478184
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -233,32 +235,54 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531999292881766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13a358750fbc24ae1b76f305dc238b5e, type: 3}
+  m_Script: {fileID: 11500000, guid: df3d16a86905041d3979137f7a360882, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  anim: {fileID: 0}
+  block: 0
+  invulnerability: 0
+  stun: 0
+  attack: 0
+  attackCollision:
+    serializedVersion: 2
+    m_Bits: 264
+  arrow: {fileID: 0}
+  defaultMovespeed: 5
+  defaultImpulsePower: 5
+  alive: 1
+  hpBar: {fileID: 0}
+--- !u!114 &114139921542465552
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531999292881766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914d18e7ba0954f68970c7c00e651f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
   armor: 0
-  attack: 5
+  attack: 10
   attackSpeed: 2
-  attackRange: 1.5
-  invulnerability: 0
-  attackCheck: 1
-  stunned: 0
-  alive: 1
-  attackModify: 0000
+  attackRange: 2.1
   moveSpeed: 2
+  impulsePower: 1
   input: 0
   rb: {fileID: 0}
   anim: {fileID: 0}
+  damage: {fileID: 0}
+  conditions: {fileID: 0}
   direction: 1
   flipParam: 0
-  attackCollision:
-    serializedVersion: 2
-    m_Bits: 256
-  runDistance: 3
-  runSpeed: 5
+  myStack: {fileID: 0}
+  target: {fileID: 0}
+  idle: 1
   bornDelay: 0
-  impulsePower: 10
+  runDistance: 7
+  runSpeed: 5
 --- !u!114 &114425553152960328
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -270,7 +294,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf6892b264ea4ccb9a16f34d04baa7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unit: {fileID: 114239565616695374}
+  unit: {fileID: 114139921542465552}
+  barObject: {fileID: 1998031685609636}
 --- !u!114 &114603036514796900
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -287,6 +312,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114895144323521222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1531999292881766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32953cdc508b412ba279535739c1903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  conditions: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!114 &114897967036297440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,7 +445,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &224173880567548180
 RectTransform:
